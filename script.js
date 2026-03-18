@@ -2,7 +2,13 @@ let menu = document.querySelector('#menu-bars');
 let navbar = document.querySelector('.navbar');
 
 menu.onclick = () =>{
-    menu.classList.toggle('fa-times');
+    // menu.classList.remove('fa-bars');
+    // menu.classList.add('fa-times')
+    if(menu.classList.contains('fa-bars')){
+        menu.classList.replace('fa-bars','fa-times')
+    }else{
+        menu.classList.replace('fa-times','fa-bars')
+    }
     navbar.classList.toggle('active');
 }
 
