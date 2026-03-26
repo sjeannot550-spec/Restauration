@@ -639,6 +639,140 @@ header .icons #menu-bars {
     opacity:0;
 }
 
+/* --- LOGIN FORM PART --- */
+
+.login-form-container{
+    position: fixed;
+    top: -120%; /* Caché au-dessus de l'écran par défaut */
+    left: 0; 
+    z-index: 1005; /* Juste au-dessus du search-form */
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.8); /* Fond sombre semi-transparent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    transition: top .4s linear; /* Animation fluide */
+}
+
+/* Classe activée par JS pour faire descendre le formulaire */
+.login-form-container.active{
+    top: 0;
+}
+
+.login-form-container form{
+    background: #fff;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    padding: 3rem;
+    width: 50rem;
+    position: relative;
+    animation: fadeIn .4s linear .4s backwards; /* Petite animation d'apparition */
+}
+
+@keyframes fadeIn {
+    0%{ transform: scale(.5); opacity: 0; }
+}
+
+.login-form-container form h3{
+    font-size: 3rem;
+    border-bottom: .2rem solid var(--green);
+    color: var(--black);
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.login-form-container form span{
+    display: block;
+    font-size: 1.7rem;
+    color: var(--light-color);
+    padding-top: 1rem;
+}
+
+.login-form-container form .box{
+    width: 100%;
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none; /* Important pour les emails/mots de passe */
+    margin: 1rem 0;
+}
+
+.login-form-container form .box:focus{
+    border: .1rem solid var(--green);
+}
+
+.login-form-container form .checkbox{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 0;
+}
+
+.login-form-container form .checkbox label{
+    font-size: 1.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+}
+
+.login-form-container form .btn{
+    width: 100%;
+    margin: 1.5rem 0;
+    justify-content: center; /* Centre le texte dans le btn flex */
+}
+
+.login-form-container form p{
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.login-form-container form p a{
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.login-form-container form p a:hover{
+    color: var(--black);
+}
+
+/* Bouton de fermeture (la croix) */
+.login-form-container #close-login-form{
+    position: absolute;
+    top: 1.5rem; 
+    right: 2.5rem;
+    font-size: 5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-form-container #close-login-form:hover{
+    color: var(--green);
+}
+
+.login-form-container form select.box {
+    width: 100%;
+    margin: .7rem 0;
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+}
+
+.login-form-container form span {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
 
 
 
@@ -721,6 +855,11 @@ header .icons #menu-bars {
   .home .home-slider .slide .content h3{
     font-size: 5rem;
 }
+
+.login-form-container form{
+        width: 100%; /* Prend toute la largeur sur petit écran */
+        padding: 2rem;
+    }
 
 }
 

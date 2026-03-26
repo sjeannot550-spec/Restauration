@@ -14,6 +14,8 @@
      <!-- curstom css file link -->
       <link rel="stylesheet" href="style.css">
 
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 </head>
 <body>
 
@@ -33,10 +35,60 @@
         </nav>
 
         <div class="icons">
-            <i class="fas fa-bars" id="menu-bars"></i>
-            <i class="fas fa-search" id="search-icons"></i>
-            <a href="#" class="fas fa-heart"></a>
-            <a href="#" class="fas fa-shopping-cart"></a>
+           <i class="fas fa-bars" id="menu-bars"></i>
+           <i class="fas fa-search" id="search-icons"></i>
+           <a href="#" class="fas fa-heart"></a>
+           <a href="#" class="fas fa-shopping-cart"></a>
+           <i class="fas fa-user" id="user-icons"></i>
+        </div>
+
+        <div class="login-form-container">
+
+            <i class="fas fa-times" id="close-login-form"></i>
+
+            <form id="login-form">
+            <h3>Connexion</h3>
+            <span>Email</span>
+            <input type="email" class="box" placeholder="Entrez votre email" id="login-email">
+            <span>Mot de passe</span>
+            <input type="password" class="box" placeholder="Entrez votre mot de passe" id="login-password">
+    
+            <span>Se connecter en tant que :</span>
+            <select name="role" class="box" id="login-role">
+              <option value="client">Client</option>
+              <option value="admin">Administrateur</option>
+            </select>
+
+        <div class="checkbox">
+            <input type="checkbox" id="remember-me">
+            <label for="remember-me">Se souvenir de moi</label>
+        </div>
+            <input type="submit" value="Se connecter" class="btn">
+            <p>Mot de passe oublié ? <a href="#">Cliquez ici</a></p>
+            <p>Vous n'avez pas de compte ? <a href="#" id="go-to-register">Créer un compte</a></p>
+            </form>
+
+            <form id="register-form">
+            <h3>Inscription</h3>
+            <span>Nom Complet</span>
+            <input type="text"  class="box" placeholder="Entrez votre nom" id="reg-name">
+            <span>Email</span>
+            <input type="email" class="box" placeholder="Entrez votre email" id="reg-email">
+    
+            <span>Type de compte :</span>
+            <select name="role" class="box" id="reg-role">
+              <option value="client">Client</option>
+              <option value="admin">Administrateur</option>
+            </select>
+
+            <span>Mot de passe</span>
+            <input type="password" class="box" placeholder="Créez un mot de passe" id="reg-password">
+            <span>Confirmer le mot de passe</span>
+            <input type="password" class="box" placeholder="Confirmez le mot de passe" id="reg-confirm-pass">
+
+            <input type="submit" value="S'inscrire" class="btn">
+            <p>Vous avez déjà un compte ? <a href="#" id="go-to-login">Se connecter</a></p>
+            </form>
         </div>
 
     </header>
@@ -49,6 +101,7 @@
         <input type="search" placeholder="search here..." name="" id="search-box">
         <label for="search-box" class="fas fa-search"></label>
         <i class="fas fa-times" id="close"></i>
+        <i class="fas fa-user" id="user-icon"></i>
     </form>
 
     <!-- Home section starts -->
@@ -62,9 +115,9 @@
                 <div class=" swiper-slide slide">
                     <div class="content">
                         <span>our special dish</span>
-                        <h3>Poulet braisé en sauce aux champignons</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nihil vitae ratione eligendi.</p>
+                        <h3>Frit + Nuggets</h3>
+                        <p>Degustez un délicieux Frit + Nuggets nappé d'une onctueuse sauce aux champignons,
+                        préparer avec soin pour offrir une explosion de saveurs.</p>
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
@@ -76,8 +129,10 @@
                     <div class="content">
                         <span>our special dish</span>
                         <h3>Coca-Cola frais</h3>
-                        <p>Profitez d’un Coca-Cola bien frais,
-                           une boisson gazeuse rafraîchissante au goût unique.</p>
+                        <p>Savourez un Coca-Cola bien frais,
+                        une boisson gazeuse embblématique reconnue
+                        pour accompagner vos repas ou pour vous désaltérer.
+                        </p>
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
@@ -88,9 +143,9 @@
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>our special dish</span>
-                        <h3>Poulet sauté au brocoli sauce teriyaki</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nihil vitae ratione eligendi.</p>
+                        <h3>Shawarma</h3>
+                        <p>Ce plat est une recette savoureuse qui associe des morceaux
+                        de chaque ingredient le tout enrobé d'une sauce teriyaki sucrée-salée</p>
                         <a href="#" class="btn">order now</a>
                     </div>
                     <div class="image">
@@ -109,7 +164,7 @@
     <!-- Home section ends -->
 
     <!-- Dishes section starts -->
-     <section class="dishes" id="dishes">
+     <section class="dishes" id="Dishes">
 
         <h3 class="sub-heading"> our dishes </h3>
         <h1 class="popular heading"> our dishes </h1>
@@ -120,7 +175,7 @@
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjmXBrjbLsQMGTESfQFAbzJIg-3lPSIe7utQ&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Poulet Frit</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -128,15 +183,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>50.000FC</span>
+                <a href="#" class="btn" data-name="Poulet Frit" data-price="50.000FC">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6_2yY5Kf7ViumPRG5p43t0t1KNJxuLAqDcQ&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Frites + nuggets</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -144,15 +199,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>31.000FC</span>
+                <a href="#" class="btn" data-name="Frites + nuggets" data-price="31.000FC">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMliNPhBe2vv8REk0KV6QM9rNYpetIDMJqA&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Coca-Cola</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -160,15 +215,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>2.500fc</span>
+                <a href="#" class="btn" data-name="Coca-Cola" data-price="2.500fc">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSliR2dbVtxz6o34C7eApwqxjj4FW7g9Arcw&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Shawarma</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -176,8 +231,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>7000FC</span>
+                <a href="#" class="btn" data-name="Shawarma" data-price="7000FC">add to cart</a>
             </div>
 
 
@@ -185,7 +240,7 @@
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQL5aWEqkMUZCQePS4kpMZ9pUbEQK2UXu1kaw&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Kebab</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -193,15 +248,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>17.000FC</span>
+                <a href="#" class="btn" data-name="Kebab" data-price="17.000FC">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPTBn7nbd5iftNo_XPYRq9ObfPE9DMMIOSdg&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Pommes de Terre</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -209,15 +264,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>28.000FC</span>
+                <a href="#" class="btn" data-name="Pommes de Terre" data-price="28.000FC">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH_cZInY0zN8YxJmuf1syMbbvv1KUUmNgR_Q&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Boisson Gazeuse</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -225,15 +280,15 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>3000FC</span>
+                <a href="#" class="btn" data-name="Boisson Gazeuse" data-price="3000FC">add to cart</a>
             </div>
 
             <div class="box">
                 <a href="#" class="fas fa-heart"></a>
                 <a href="#" class="fas fa-eye"></a>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu25VlQfqNbS2kFxJq4KpXAeznoZ2ylGB93A&s" alt="">
-                <h3>tasty food</h3>
+                <h3>Burger</h3>
                 <div class="stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -241,8 +296,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <span>$15.99</span>
-                <a href="#" class="btn" data-name="Poulet Braisé" data-price="15.99">add to cart</a>
+                <span>35.000FC</span>
+                <a href="#" class="btn" data-name="Burger" data-price="35.000FC">add to cart</a>
             </div>
         </div>
 
@@ -251,7 +306,7 @@
 
     <!-- About section starts -->
 
-     <section class="about" id="about">
+     <section class="about" id="About">
 
         <h3 class="sub-heading"> about us </h3>
         <h1 class="popular heading"> why choose us? </h1>
@@ -283,7 +338,7 @@
                         <span>24/7 service</span>
                     </div>
                 </div>
-                <a href="#" class="btn">learn more</a>
+                <a href="#" class="btn" data-name="pizza" data-price="15.99">add to cart</a>
             </div>
 
         </div>
@@ -294,7 +349,7 @@
 
     <!-- Menu section starts -->
 
-     <section class="menu" id="menu">
+     <section class="menu" id="Menu">
 
         <h3 class="sub-heading"> our menu </h3>
         <h1 class="popular heading"> today's specialisty </h1>
@@ -317,7 +372,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="Goffre" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -338,7 +393,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="Limonade" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -359,7 +414,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="Tarte" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -380,7 +435,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="poulet + riz" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -401,7 +456,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="samusa" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -422,7 +477,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="coupe clace" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -443,7 +498,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="gateau au chocola" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -464,7 +519,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    pizza
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -485,7 +540,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="Burger" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -506,7 +561,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="Fanta" data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -527,7 +582,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="panequece " data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -548,7 +603,7 @@
                     <h3>delicioux food</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum,
                     sapiente!</p>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="#" class="btn" data-name="panequece " data-price="15.99">add to cart</a>
                     <span class="pice">$12.99</span>
                 </div>
             </div>
@@ -931,7 +986,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-    <!-- custom js file link -->
-     <script src="script.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
